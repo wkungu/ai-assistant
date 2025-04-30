@@ -26,10 +26,6 @@ This is the **FastAPI backend** for the Business Advisor AI project — an inter
 
 ---
 
-## 📂 Project Structure
-
-<img src="./structure.png" alt="Structure" width="20%" />
-
 ## 🔧 Backend Setup Instructions
 
 ### 1. Clone the Repository

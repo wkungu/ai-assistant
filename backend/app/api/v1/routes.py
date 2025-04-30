@@ -17,7 +17,7 @@ async def fetch_query_history():
     return {"history": get_history()}
 
 @router.post("/query", tags=["Query"])
-async def query_ai(payload: QueryRequest, request: Request):
+async def query_ai(payload: QueryRequest):
     if not payload.question:
         raise HTTPException(status_code=400, detail="Question cannot be empty.")
     try:
