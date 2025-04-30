@@ -19,7 +19,8 @@ This is the **FastAPI backend** for the Business Advisor AI project — an inter
 - **Async Client**: HTTPX
 - **Environment Management**: python-dotenv
 - **API Docs**: Swagger UI / ReDoc (auto-generated)
-  **Frontend (JavaScript)**
+
+**Frontend (JavaScript)**
 - **Framework**: Next.js 15 (App Router)
 - **UI**: Tailwind CSS
 
