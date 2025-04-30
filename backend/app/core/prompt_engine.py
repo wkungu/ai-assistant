@@ -11,6 +11,7 @@ HEADERS = {
     "Content-Type": "application/json"
 }
 
+# Engineer the prompt
 SYSTEM_PROMPT = (
     "You are a highly knowledgeable and practical AI assistant specialized in advising small businesses and entrepreneurs. "
     "Your role is to offer clear, actionable, and insightful advice on a wide range of business topics including: \n\n"
@@ -30,7 +31,7 @@ SYSTEM_PROMPT = (
     "- Assume the user may be new to business, unless context says otherwise.\n"
 )
 
-
+# Generate the responses
 async def generate_ai_response(user_question: str) -> str:
     payload = {
         "model": "gpt-3.5-turbo",  # You can switch to gpt-4 if available on your plan
@@ -41,7 +42,7 @@ async def generate_ai_response(user_question: str) -> str:
         "temperature": 0.7
     }
 
-    retries = 3
+    retries = 3 # Number of times to try hitting the API
     for attempt in range(retries):
         try:
             async with httpx.AsyncClient() as client:
@@ -53,7 +54,10 @@ async def generate_ai_response(user_question: str) -> str:
                 return result["choices"][0]["message"]["content"]
 
         except httpx.HTTPStatusError as e:
+            # Print error in case it fails
             print(f"[HTTP Error] {e.response.status_code} - {e.response.text}")
+            
+            # If the issue is too many tries, try 3 more times before failing
             if e.response.status_code == 429 and attempt < retries - 1:
                 wait_time = 2 ** attempt
                 print(f"[Rate Limit] Retrying in {wait_time} seconds...")

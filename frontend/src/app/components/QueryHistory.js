@@ -6,6 +6,7 @@ import {formatResponse} from './utils'
 const QueryHistory = () => {
   const [history, setHistory] = useState([]);
 
+  // Fetch History from the backend
   useEffect(() => {
     const fetchHistory = async () => {
       const res = await fetch("http://localhost:8000/api/v1/history");

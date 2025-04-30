@@ -4,10 +4,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.api.v1.routes import router as api_router
 from app.core.logger import LoggingMiddleware
 
-# from dotenv import load_dotenv
-
-# load_dotenv()
-
 app = FastAPI(
     title="Business Advisor AI",
     description="An interactive Q&A system that provides business advice documentation requirements.",

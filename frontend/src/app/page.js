@@ -11,6 +11,7 @@ const Home = () => {
   const [history, setHistory] = useState(false);
   const [error, setError] = useState("");
 
+  // Handle submitting the questions to the API
   const handleQuerySubmit = async (question) => {
     setLoading(true);
     setError("");

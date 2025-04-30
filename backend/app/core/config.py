@@ -3,10 +3,8 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
-
+# Fetch .env configs in one place to avoid fetching it in other modules
 class Settings:
     OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "fallback-secret-key")
-    DEEP_SEEK_API_KEY = os.getenv("DEEP_SEEK_API_KEY", "fallback-secret-key")
-    GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "fallback-secret-key")
 
 settings = Settings()

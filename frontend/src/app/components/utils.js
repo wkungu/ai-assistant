@@ -1,3 +1,4 @@
+// Format the responces from API
 export const formatResponse = (text) => {
     return text.split('\n').map((line, index) => {
       const parts = line.split(/(\*\*.*?\*\*)/g).map((part, i) => {
