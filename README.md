@@ -116,7 +116,7 @@ Accepts a user's natural language business question and returns an AI-generated 
 }
 ```
 
-## 🔧 Front Setup Instructions
+## 🔧 Frontend Setup Instructions
 
 ### 1. Navigate to the Frontend Directory
 
