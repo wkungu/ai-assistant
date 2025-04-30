@@ -31,7 +31,7 @@ This is the **FastAPI backend** for the Business Advisor AI project — an inter
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/ai-assistant.git
+git clone https://github.com/wkungu/ai-assistant.git
 cd ai-assistant/backend
 ```
 
