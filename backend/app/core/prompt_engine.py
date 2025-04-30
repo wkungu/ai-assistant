@@ -3,6 +3,8 @@ import httpx
 from app.core.config import settings
 from app.services.history_store import add_to_history
 
+import traceback
+
 API_KEY = settings.OPENAI_API_KEY
 ENDPOINT = "https://api.openai.com/v1/chat/completions"
 
@@ -43,9 +45,13 @@ async def generate_ai_response(user_question: str) -> str:
     }
 
     retries = 3 # Number of times to try hitting the API
+    
+    # Set timeout
+    timeout = httpx.Timeout(30.0, connect=10.0)  # 30s total, 10s to connect
+    
     for attempt in range(retries):
         try:
-            async with httpx.AsyncClient() as client:
+            async with httpx.AsyncClient(timeout=timeout) as client:
                 response = await client.post(ENDPOINT, headers=HEADERS, json=payload)
 
                 response.raise_for_status()
@@ -67,4 +73,5 @@ async def generate_ai_response(user_question: str) -> str:
 
         except Exception as e:
             print(f"[Unexpected Error] {e}")
+            traceback.print_exc()
             raise
