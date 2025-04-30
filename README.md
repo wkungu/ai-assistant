@@ -102,6 +102,19 @@ Accepts a user's natural language business question and returns an AI-generated 
 }
 ```
 
+**History Response Example:**
+
+```
+{
+  "history": [
+    {
+			"question": "what are funding options for a startup business in kenya?",
+			"response": "Securing funding for a startup in Kenya can be challenging, ...."
+		}
+  ]
+}
+```
+
 ## 🔧 Front Setup Instructions
 
 ### 1. Navigate to the Frontend Directory
