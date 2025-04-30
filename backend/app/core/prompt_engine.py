@@ -1,6 +1,7 @@
 import asyncio
 import httpx
 from app.core.config import settings
+from httpx import ReadTimeout
 from app.services.history_store import add_to_history
 
 import traceback
@@ -68,6 +69,10 @@ async def generate_ai_response(user_question: str) -> str:
                 wait_time = 2 ** attempt
                 print(f"[Rate Limit] Retrying in {wait_time} seconds...")
                 await asyncio.sleep(wait_time)
+            # If the issue is timing out retry after 2 more seconds before failing
+            elif isinstance(e, ReadTimeout) and attempt < retries - 1:
+                print(f"[Timeout] Retrying in 2 seconds...")
+                await asyncio.sleep(2)
             else:
                 raise
 

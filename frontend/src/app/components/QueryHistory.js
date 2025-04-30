@@ -25,8 +25,12 @@ const QueryHistory = () => {
         <ul className="space-y-4">
           {history.map((entry, idx) => (
             <li key={idx} className="border-b pb-3">
+              <p className="flex justify-end text-xs text-gray-500">
+                Asked on: {new Date(entry.timestamp).toLocaleString()}
+              </p>
               <p className="font-bold text-blue-700 mb-3">{entry.question}</p>
               <p className="text-sm text-gray-500">{formatResponse(entry.response)}</p>
+              
             </li>
           ))}
         </ul>
