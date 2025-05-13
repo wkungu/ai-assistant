@@ -117,16 +117,12 @@ Accepts a user's natural language business question and returns an AI-generated 
 ### 1. Navigate to the Frontend Directory
 
 ```
-Copy
-Edit
 cd ../frontend
 ```
 
 ### 2. Install Dependencies
 
 ```
-Copy
-Edit
 npm install
 # or
 yarn
@@ -135,8 +131,6 @@ yarn
 ### 3. Run the Dev Server
 
 ```
-Copy
-Edit
 npm run dev
 # or
 yarn dev
